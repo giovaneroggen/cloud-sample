@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+br.com.roggen.security.client.v1.config.FeignClientConfiguration

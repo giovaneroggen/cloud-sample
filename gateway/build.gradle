@@ -1,0 +1,9 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    compile("org.springframework.cloud:spring-cloud-starter-oauth2")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    compile project(':security-client-v1')
+    compile project(':spring-security')
+}

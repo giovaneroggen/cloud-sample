@@ -1,0 +1,1 @@
+includeClient('product', ['v1', 'v2'])

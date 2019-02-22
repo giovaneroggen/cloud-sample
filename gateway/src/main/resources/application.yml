@@ -1,0 +1,21 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: gateway
+
+AUTHORIZATION_SERVER_URL: http://SECURITY-SERVICE/uaa
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      accessTokenUri: ${AUTHORIZATION_SERVER_URL}/oauth/token
+      userAuthorizationUri: ${AUTHORIZATION_SERVER_URL}/oauth/authorize
+      client-id: client
+      client-secret: secret
+      scope: read, write
+    resource:
+      token-info-uri: ${AUTHORIZATION_SERVER_URL}/oauth/check_token
+      user-info-uri: ${AUTHORIZATION_SERVER_URL}/users/current

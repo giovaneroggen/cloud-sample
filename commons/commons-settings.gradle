@@ -1,0 +1,6 @@
+include ':spring-web'
+project(':spring-web').projectDir = new File('./commons/spring-web')
+include ':spring-boot-tests'
+project(':spring-boot-tests').projectDir = new File('./commons/spring-boot-tests')
+include ':spring-security'
+project(':spring-security').projectDir = new File('./commons/spring-security')

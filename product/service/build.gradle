@@ -1,0 +1,1 @@
+serviceWithContract('product', ['v1', 'v2'])

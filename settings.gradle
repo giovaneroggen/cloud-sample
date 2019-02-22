@@ -1,0 +1,33 @@
+rootProject.name = 'cloud-sample'
+
+ext.includeContract = { name, List<String> versions ->
+    versions.forEach{
+        include ":${name}-contract-${it}"
+        project(":${name}-contract-${it}").projectDir = new File("./${name}/contract/${it}")
+    }
+}
+
+ext.includeClient = { name, List<String> versions ->
+    versions.forEach{
+        include ":${name}-client-${it}"
+        project(":${name}-client-${it}").projectDir = new File("./${name}/client/${it}")
+    }
+}
+
+ext.serviceSettings = { name ->
+    apply from: "${name}/contract/${name}-contract-settings.gradle"
+    apply from: "${name}/client/${name}-client-settings.gradle"
+    include ":${name}-service"
+    project(":${name}-service").projectDir = new File("./${name}/service")
+    include ":${name}-service-impl"
+    project(":${name}-service-impl").projectDir = new File("./${name}/service/impl")
+}
+
+apply from: 'commons/commons-settings.gradle'
+apply from: 'security/security-settings.gradle'
+apply from: 'user/user-settings.gradle'
+apply from: 'product/product-settings.gradle'
+
+include 'eureka'
+include 'gateway'
+
